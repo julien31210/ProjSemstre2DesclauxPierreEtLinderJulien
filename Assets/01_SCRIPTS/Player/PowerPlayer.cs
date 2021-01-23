@@ -8,30 +8,53 @@ public class PowerPlayer : MonoBehaviour
     //Sélectionner l'objet à la souris
     //Click droit prendre l'objet
     //Bouger la souris, le déplacer
+    private Vector3 mOffset;
+    private float mZCoord;
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(WaitForSecond());
-        MouseSee();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+
     }
 
-
-    public void MouseSee()
+    private void OnMouseDown()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+
+        //Store offset = gameobject world pos - mouse world pos
+        mOffset = gameObject.transform.position - GetMouseWorldPos();
+    }
+
+    private Vector3 GetMouseWorldPos()
+    {
+        //pixel coordinate (x, y)
+        Vector3 mousePoint = Input.mousePosition;
+
+        // z coordinate of game object on screen
+        mousePoint.z = mZCoord;
+
+        return Camera.main.ScreenToWorldPoint(mousePoint);
+    }
+    public void OnMouseDrag()
+    {
+
+        transform.position = GetMouseWorldPos() + mOffset;
+
+        /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, 100))
         {
             Debug.Log(this.gameObject + "hit something");
-        }
+        }*/
 
     }
+
     IEnumerator WaitForSecond()
     {
         yield return new WaitForSeconds(1);
