@@ -29,25 +29,45 @@ public class PowerPlayer : MonoBehaviour
     }*/
 
 
-    void OnMouseDown()
+    void OnMouseOver()
     {
+        Debug.Log("OnMouseDown fonctionne");
+        Debug.Log(gameObject.name);
         mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
         //Store offset = gameobject world pos - mouse world pos
         mOffset = gameObject.transform.position - GetMouseWorldPos();
     }
+    private void OnMouseExit()
+    {
+        var temp = gameObject.GetComponent<Renderer>();
+        if (GameObject.FindGameObjectWithTag("moveObject"))
+        {
+            Debug.Log("coucou");
+            temp.material.SetColor("_Color", Color.clear);
+        }
+    }
     private Vector3 GetMouseWorldPos()
     {
+        LevitationFeedback();
         //pixel coordinate (x, y)
         Vector3 mousePoint = Input.mousePosition;
 
         // z coordinate of game object on screen
         mousePoint.z = mZCoord;
-
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
     public void OnMouseDrag()
     {
         transform.position = GetMouseWorldPos() + mOffset;
+    }
+    public void LevitationFeedback()
+    {
+        var temp = gameObject.GetComponent<Renderer>();
+        if (GameObject.FindGameObjectWithTag("moveObject"))
+        {
+            Debug.Log("coucou");
+            temp.material.SetColor("_Color", Color.green);
+        }
     }
 
 }
