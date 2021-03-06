@@ -7,6 +7,7 @@ public class PowerPlayer : MonoBehaviour
     //private GameObject objLevit;
     private Vector3 mOffset;
     private float mZCoord;
+    public GameObject Player;
 
     // Start is called before the first frame update
     void Start()
@@ -17,8 +18,7 @@ public class PowerPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
+        PlayerBlocked();
     }
 
     /*private void OnMouseDown()
@@ -31,7 +31,7 @@ public class PowerPlayer : MonoBehaviour
 
     void OnMouseOver()
     {
-        Debug.Log("OnMouseDown fonctionne");
+        //Debug.Log("OnMouseDown fonctionne");
         Debug.Log(gameObject.name);
         mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
         //Store offset = gameobject world pos - mouse world pos
@@ -42,7 +42,7 @@ public class PowerPlayer : MonoBehaviour
         var temp = gameObject.GetComponent<Renderer>();
         if (GameObject.FindGameObjectWithTag("moveObject"))
         {
-            Debug.Log("coucou");
+            //Debug.Log("coucou");
             temp.material.SetColor("_Color", Color.clear);
         }
     }
@@ -60,12 +60,27 @@ public class PowerPlayer : MonoBehaviour
     {
         transform.position = GetMouseWorldPos() + mOffset;
     }
+
+    private void PlayerBlocked()
+    {
+        DeplacementJoueur deplacementJoueur = Player.GetComponent<DeplacementJoueur>();
+        if (Input.GetMouseButton(0))
+        {
+            Debug.Log("va crever salle merde");
+            deplacementJoueur.enabled = false;
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            Debug.Log("Va mourrir sale fils de pute");
+            deplacementJoueur.enabled = true;
+        }
+    }
     public void LevitationFeedback()
     {
         var temp = gameObject.GetComponent<Renderer>();
         if (GameObject.FindGameObjectWithTag("moveObject"))
         {
-            Debug.Log("coucou");
+            //Debug.Log("coucou");
             temp.material.SetColor("_Color", Color.green);
         }
     }

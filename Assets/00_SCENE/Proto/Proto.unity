@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924f723111c335c4aad0fff2ae5d8d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 919132147527068554}
 --- !u!54 &23119989
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6493,6 +6494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924f723111c335c4aad0fff2ae5d8d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 919132147527068554}
 --- !u!65 &1121352020
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6721,6 +6723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924f723111c335c4aad0fff2ae5d8d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 919132147527068554}
 --- !u!1 &1242310206
 GameObject:
   m_ObjectHideFlags: 0
@@ -7796,6 +7799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924f723111c335c4aad0fff2ae5d8d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
 --- !u!54 &2002253057
 Rigidbody:
   m_ObjectHideFlags: 0
