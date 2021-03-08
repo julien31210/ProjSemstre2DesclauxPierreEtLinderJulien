@@ -20,10 +20,10 @@ public class CameraController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-
+        Debug.Log("Salut connard");
         if (other.CompareTag("CameraChange"))
         {
-            //Debug.Log("touché");
+            Debug.Log("touché enculé");
             cameraMove();
         }
 
@@ -35,12 +35,9 @@ public class CameraController : MonoBehaviour
     }
     private void cameraMove()
     {
-        /*LeanTween.moveZ(Camera, 4, 8).setEaseOutCirc();
-        LeanTween.moveY(Camera, 12, 8).setEaseOutCirc();
-        LeanTween.moveX(Camera, 1, 10).setEaseOutCirc();
-        //LeanTween.rotateZ(Camera, 90, 8).setEaseOutCirc();
-        //LeanTween.rotateY(Camera, 90, 8).setEaseOutCirc();
-        LeanTween.rotateX(Camera, 90, 8).setEaseOutCirc();*/
+        Debug.Log("Salut trou duc");
+        LeanTween.moveLocal(Camera, new Vector3(1, 4, -10), 2).setEaseOutCirc();
+        LeanTween.rotateY(Camera, 360, 2).setEaseOutCirc();
     }
 
     private void cameraReset()
