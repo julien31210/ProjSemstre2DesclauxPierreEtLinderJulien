@@ -7,6 +7,7 @@ TagManager:
   - CameraChange
   - moveObject
   - CameraReset
+  - PlayerIsDead
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - whatIsPlayer
   - whatIsEnemy
   - whatIsLader
-  - 
-  - 
+  - PlayerHit
+  - PlayerNotHit
   - 
   - 
   - 
