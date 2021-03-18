@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerDeath : MonoBehaviour
 {
     public GameObject DeathZone;
+    public GameObject AreaLight;
     public GameObject Player;
     public GameObject Respawn;
     // Start is called before the first frame update
@@ -18,6 +19,7 @@ public class PlayerDeath : MonoBehaviour
     {
 
     }
+
 
     private void OnTriggerStay(Collider col)
     {
@@ -34,5 +36,11 @@ public class PlayerDeath : MonoBehaviour
             Player.GetComponent<MeshRenderer>().enabled = true;
         }
 
+        if (col.gameObject.CompareTag("moveObject"))
+        {
+            DeathZone.GetComponent<Collider>().enabled = false;
+            AreaLight.GetComponent<Light>().enabled = false;
+        }
     }
+
 }
