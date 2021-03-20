@@ -13827,7 +13827,7 @@ GameObject:
   - component: {fileID: 1668463161}
   - component: {fileID: 1668463162}
   m_Layer: 0
-  m_Name: Eboulement
+  m_Name: FallenRock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

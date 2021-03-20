@@ -11,6 +11,7 @@ public class Effondrement : MonoBehaviour
     void Start()
     {
         RocherQuiTombe();
+        RockFallen();
     }
 
     // Update is called once per frame
@@ -31,4 +32,13 @@ public class Effondrement : MonoBehaviour
             (Instantiate(rock, GameObject.Find("Eboulement").transform.position, Quaternion.identity) as GameObject).transform.parent = Eboulement.transform;
         }
     }
+
+    public void RockFallen()
+    {
+        for (nbRoche = 0; nbRoche < 15; nbRoche++)
+        {
+            Instantiate(rock, GameObject.Find("FallenRock").transform.position, Quaternion.identity);
+        }
+    }
+
 }
