@@ -8,6 +8,9 @@ TagManager:
   - moveObject
   - CameraReset
   - PlayerIsDead
+  - RocherSoumis
+  - RocherMaitre
+  - caTombe
   layers:
   - Default
   - TransparentFX
